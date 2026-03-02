@@ -1,0 +1,984 @@
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-03-02 13:14:59.373557', '2026-03-02 13:14:59.373558') RETURNING "key" /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:3)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:3)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:3)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+Migrating to DeviseCreateAdminUsers (20260302131526)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token") /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131526') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+Migrating to CreateActiveAdminComments (20260302131551)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_type" varchar, "resource_id" integer, "author_type" varchar, "author_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_resource" ON "active_admin_comments" ("resource_type", "resource_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_author" ON "active_admin_comments" ("author_type", "author_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace") /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131551') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+Migrating to AddDeviseToAdminUsers (20260302131552)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "email" varchar DEFAULT '' NOT NULL /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+Migrating to CreateFriendlyIdSlugs (20260302131559)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "slug" varchar NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" varchar(50), "scope" varchar, "created_at" datetime(6)) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope") /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131559') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:3)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:3)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:3)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:3)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+Migrating to CreateTours (20260302131616)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "tours" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "slug" varchar, "description" text, "price_cents" integer, "duration" varchar, "departure_time" varchar, "pickup_location" varchar, "max_passengers" integer, "featured_image" varchar, "active" boolean, "position" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131616') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+Migrating to CreateVehicles (20260302131627)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "vehicles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "vehicle_type" varchar, "capacity" integer, "description" text, "image" varchar, "available" boolean, "position" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131627') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+Migrating to CreateTourBookings (20260302131628)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "tour_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "tour_id" integer NOT NULL, "booking_ref" varchar, "full_name" varchar, "email" varchar, "phone" varchar, "travel_date" date, "num_passengers" integer, "pickup_point" varchar, "special_requests" text, "status" integer, "total_amount_cents" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_80f3841990"
+FOREIGN KEY ("tour_id")
+  REFERENCES "tours" ("id")
+) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tour_bookings_on_tour_id" ON "tour_bookings" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131628') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+Migrating to CreateAirportBookings (20260302131629)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "airport_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_ref" varchar, "full_name" varchar, "email" varchar, "phone" varchar, "trip_type" integer, "airport" varchar, "flight_number" varchar, "flight_datetime" datetime(6), "num_passengers" integer, "address" text, "vehicle_type" varchar, "notes" text, "status" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131629') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+Migrating to CreateVehicleBookings (20260302131630)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "vehicle_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "vehicle_id" integer NOT NULL, "booking_ref" varchar, "full_name" varchar, "email" varchar, "phone" varchar, "pickup_date" date, "return_date" date, "pickup_location" varchar, "num_passengers" integer, "notes" text, "status" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ce9a2c48ef"
+FOREIGN KEY ("vehicle_id")
+  REFERENCES "vehicles" ("id")
+) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_vehicle_bookings_on_vehicle_id" ON "vehicle_bookings" ("vehicle_id") /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131630') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+Migrating to CreateReviews (20260302131631)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "rating" integer, "body" text, "tour_id" integer NOT NULL, "approved" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cbf2a12b63"
+FOREIGN KEY ("tour_id")
+  REFERENCES "tours" ("id")
+) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_tour_id" ON "reviews" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131631') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+Migrating to CreateGalleryImages (20260302131632)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "gallery_images" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "caption" varchar, "category" varchar, "position" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302131632') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = 'admin@karthiktours.com.au' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mAdminUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'admin@karthiktours.com.au' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mAdminUser Create (0.9ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('admin@karthiktours.com.au', '$2a$12$ppxM66fykeOHelU1CKspP..gHkoxjP/iOAwNFQu7wV3Vcf5oWHHaq', NULL, NULL, NULL, '2026-03-02 13:31:56.768318', '2026-03-02 13:31:56.768318') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Blue Mountains Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'blue-mountains-day-trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'blue-mountains-day-trip' LIMIT 1[0m
+  [1m[36mTour Create (0.1ms)[0m  [1m[32mINSERT INTO "tours" ("name", "slug", "description", "price_cents", "duration", "departure_time", "pickup_location", "max_passengers", "featured_image", "active", "position", "created_at", "updated_at") VALUES ('Blue Mountains Day Trip', 'blue-mountains-day-trip', 'Experience the dramatic scenery of the Blue Mountains World Heritage Area. Visit the iconic Three Sisters, Echo Point lookout, and Scenic World with breathtaking valley views. This full-day adventure includes stops at Leura village for coffee and shopping, Wentworth Falls, and the stunning Jamison Valley.', 7500, '1 Day', '7:00 AM', 'Parramatta Station', 13, NULL, TRUE, 1, '2026-03-02 13:31:56.803386', '2026-03-02 13:31:56.803386') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Canberra Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'canberra-day-trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'canberra-day-trip' LIMIT 1[0m
+  [1m[36mTour Create (0.1ms)[0m  [1m[32mINSERT INTO "tours" ("name", "slug", "description", "price_cents", "duration", "departure_time", "pickup_location", "max_passengers", "featured_image", "active", "position", "created_at", "updated_at") VALUES ('Canberra Day Trip', 'canberra-day-trip', 'Discover Australia''s capital city on this informative and enjoyable day tour. Visit the Australian War Memorial, Parliament House, National Gallery of Australia, and Lake Burley Griffin. A perfect blend of history, culture, and architecture — all in one day from Sydney.', 11500, '1 Day', '6:00 AM', 'Parramatta Station', 13, NULL, TRUE, 2, '2026-03-02 13:31:56.807447', '2026-03-02 13:31:56.807447') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Jervis Bay Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'jervis-bay-day-trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'jervis-bay-day-trip' LIMIT 1[0m
+  [1m[36mTour Create (0.1ms)[0m  [1m[32mINSERT INTO "tours" ("name", "slug", "description", "price_cents", "duration", "departure_time", "pickup_location", "max_passengers", "featured_image", "active", "position", "created_at", "updated_at") VALUES ('Jervis Bay Day Trip', 'jervis-bay-day-trip', 'Escape to one of Australia''s most pristine coastal destinations. Jervis Bay boasts some of the whitest sand in the world, crystal-clear turquoise waters, and abundant wildlife including dolphins, sea eagles, and kangaroos. Visit Hyams Beach, Huskisson village, and Booderee National Park.', 11000, '1 Day', '6:30 AM', 'Parramatta Station', 13, NULL, TRUE, 3, '2026-03-02 13:31:56.810812', '2026-03-02 13:31:56.810812') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Kiama & South Coast' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'kiama-south-coast' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'kiama-south-coast' LIMIT 1[0m
+  [1m[36mTour Create (0.0ms)[0m  [1m[32mINSERT INTO "tours" ("name", "slug", "description", "price_cents", "duration", "departure_time", "pickup_location", "max_passengers", "featured_image", "active", "position", "created_at", "updated_at") VALUES ('Kiama & South Coast', 'kiama-south-coast', 'Explore the charming coastal town of Kiama and its famous Blowhole, then venture through stunning South Coast scenery. Visit Minnamurra Rainforest, the historic Jamberoo, Kiama Lighthouse, and enjoy fresh seafood at the harbour. A perfect mix of natural beauty and local culture.', 9500, '1 Day', '7:00 AM', 'Parramatta Station', 13, NULL, TRUE, 4, '2026-03-02 13:31:56.814230', '2026-03-02 13:31:56.814230') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Nelson Bay & Port Stephens' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'nelson-bay-port-stephens' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'nelson-bay-port-stephens' LIMIT 1[0m
+  [1m[36mTour Create (0.0ms)[0m  [1m[32mINSERT INTO "tours" ("name", "slug", "description", "price_cents", "duration", "departure_time", "pickup_location", "max_passengers", "featured_image", "active", "position", "created_at", "updated_at") VALUES ('Nelson Bay & Port Stephens', 'nelson-bay-port-stephens', 'Head north to the magnificent Port Stephens bay area — famous for its resident dolphin pods, pristine beaches, and the towering Stockton Sand Dunes. Experience a dolphin-watching cruise, quad biking on the dunes, and time to relax on the beautiful Fingal Bay or Shoal Bay beaches.', 11000, '1 Day', '6:30 AM', 'Parramatta Station', 13, NULL, TRUE, 5, '2026-03-02 13:31:56.817647', '2026-03-02 13:31:56.817647') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Snowy Mountains Adventure' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'snowy-mountains-adventure' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'snowy-mountains-adventure' LIMIT 1[0m
+  [1m[36mTour Create (0.0ms)[0m  [1m[32mINSERT INTO "tours" ("name", "slug", "description", "price_cents", "duration", "departure_time", "pickup_location", "max_passengers", "featured_image", "active", "position", "created_at", "updated_at") VALUES ('Snowy Mountains Adventure', 'snowy-mountains-adventure', 'Journey to the rooftop of Australia — the magnificent Snowy Mountains and Kosciuszko National Park. In summer, explore alpine wildflower meadows and crystal-clear streams. In winter, experience the magic of Australia''s premier ski resorts. Visit Thredbo, Charlotte Pass, and Lake Jindabyne.', 25000, '1 Day', '5:30 AM', 'Parramatta Station', 13, NULL, TRUE, 6, '2026-03-02 13:31:56.821081', '2026-03-02 13:31:56.821081') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tours" /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota Camry (Sedan)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.0ms)[0m  [1m[32mINSERT INTO "vehicles" ("name", "vehicle_type", "capacity", "description", "image", "available", "position", "created_at", "updated_at") VALUES ('Toyota Camry (Sedan)', 'Sedan', 4, 'Comfortable executive sedan, perfect for airport transfers and small groups.', NULL, TRUE, 1, '2026-03-02 13:31:56.827452', '2026-03-02 13:31:56.827452') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota Kluger (SUV)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.6ms)[0m  [1m[32mINSERT INTO "vehicles" ("name", "vehicle_type", "capacity", "description", "image", "available", "position", "created_at", "updated_at") VALUES ('Toyota Kluger (SUV)', 'SUV', 7, 'Spacious 7-seater SUV with generous luggage space. Great for family trips.', NULL, TRUE, 2, '2026-03-02 13:31:56.828948', '2026-03-02 13:31:56.828948') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota HiAce (Van)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.6ms)[0m  [1m[32mINSERT INTO "vehicles" ("name", "vehicle_type", "capacity", "description", "image", "available", "position", "created_at", "updated_at") VALUES ('Toyota HiAce (Van)', 'Van', 13, 'Full-size van for medium groups. Air-conditioned with individual seating.', NULL, TRUE, 3, '2026-03-02 13:31:56.830884', '2026-03-02 13:31:56.830884') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Hyundai iMax (Van)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.5ms)[0m  [1m[32mINSERT INTO "vehicles" ("name", "vehicle_type", "capacity", "description", "image", "available", "position", "created_at", "updated_at") VALUES ('Hyundai iMax (Van)', 'Van', 8, '8-seater people-mover with reclining seats and extra comfort features.', NULL, TRUE, 4, '2026-03-02 13:31:56.832826', '2026-03-02 13:31:56.832826') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Rosa Minibus' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.5ms)[0m  [1m[32mINSERT INTO "vehicles" ("name", "vehicle_type", "capacity", "description", "image", "available", "position", "created_at", "updated_at") VALUES ('Rosa Minibus', 'Minibus', 24, '24-seat minibus for larger groups, school excursions, and corporate events.', NULL, TRUE, 5, '2026-03-02 13:31:56.834643', '2026-03-02 13:31:56.834643') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "vehicles" /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Blue Mountains Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Jervis Bay Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Canberra Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Sarah M.' AND "reviews"."body" = 'Absolutely incredible experience! The Blue Mountai' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.0ms)[0m  [1m[32mINSERT INTO "reviews" ("author_name", "rating", "body", "tour_id", "approved", "created_at", "updated_at") VALUES ('Sarah M.', 5, 'Absolutely incredible experience! The Blue Mountains tour was breathtaking. Our driver was so knowledgeable and made the whole day so special. Will definitely book again!', 1, TRUE, '2026-03-02 13:31:56.846388', '2026-03-02 13:31:56.846388') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'James K.' AND "reviews"."body" = 'Karthik Tours exceeded all expectations. The Jervi' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("author_name", "rating", "body", "tour_id", "approved", "created_at", "updated_at") VALUES ('James K.', 5, 'Karthik Tours exceeded all expectations. The Jervis Bay trip was the highlight of our Sydney visit. Stunning beaches, amazing wildlife, and a fantastic guide. 100% recommend!', 3, TRUE, '2026-03-02 13:31:56.848003', '2026-03-02 13:31:56.848003') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Priya N.' AND "reviews"."body" = 'We booked the airport transfer and it was seamless' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.7ms)[0m  [1m[32mINSERT INTO "reviews" ("author_name", "rating", "body", "tour_id", "approved", "created_at", "updated_at") VALUES ('Priya N.', 5, 'We booked the airport transfer and it was seamless. Driver was on time, vehicle was spotless, and he helped with all our luggage. Will always use Karthik Tours for our airport runs.', NULL, TRUE, '2026-03-02 13:31:56.849781', '2026-03-02 13:31:56.849781') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments" /*application='TaxiApp'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "author_type" varchar, "body" text, "created_at" datetime(6) NOT NULL, "namespace" varchar, "resource_id" integer, "resource_type" varchar, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_author" ON "active_admin_comments" ("author_type", "author_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace") /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_resource" ON "active_admin_comments" ("resource_type", "resource_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "admin_users" /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "remember_created_at" datetime(6), "reset_password_sent_at" datetime(6), "reset_password_token" varchar, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "airport_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "airport_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "address" text, "airport" varchar, "booking_ref" varchar, "created_at" datetime(6) NOT NULL, "email" varchar, "flight_datetime" datetime(6), "flight_number" varchar, "full_name" varchar, "notes" text, "num_passengers" integer, "phone" varchar, "status" integer, "trip_type" integer, "updated_at" datetime(6) NOT NULL, "vehicle_type" varchar) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendly_id_slugs" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6), "scope" varchar, "slug" varchar NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" varchar(50)) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "gallery_images" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "gallery_images" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "caption" varchar, "category" varchar, "created_at" datetime(6) NOT NULL, "position" integer, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "approved" boolean, "author_name" varchar, "body" text, "created_at" datetime(6) NOT NULL, "rating" integer, "tour_id" integer NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_tour_id" ON "reviews" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "tour_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tour_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_ref" varchar, "created_at" datetime(6) NOT NULL, "email" varchar, "full_name" varchar, "num_passengers" integer, "phone" varchar, "pickup_point" varchar, "special_requests" text, "status" integer, "total_amount_cents" integer, "tour_id" integer NOT NULL, "travel_date" date, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tour_bookings_on_tour_id" ON "tour_bookings" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "tours" /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tours" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "active" boolean, "created_at" datetime(6) NOT NULL, "departure_time" varchar, "description" text, "duration" varchar, "featured_image" varchar, "max_passengers" integer, "name" varchar, "pickup_location" varchar, "position" integer, "price_cents" integer, "slug" varchar, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "vehicle_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "vehicle_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_ref" varchar, "created_at" datetime(6) NOT NULL, "email" varchar, "full_name" varchar, "notes" text, "num_passengers" integer, "phone" varchar, "pickup_date" date, "pickup_location" varchar, "return_date" date, "status" integer, "updated_at" datetime(6) NOT NULL, "vehicle_id" integer NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_vehicle_bookings_on_vehicle_id" ON "vehicle_bookings" ("vehicle_id") /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "vehicles" /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "vehicles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "available" boolean, "capacity" integer, "created_at" datetime(6) NOT NULL, "description" text, "image" varchar, "name" varchar, "position" integer, "updated_at" datetime(6) NOT NULL, "vehicle_type" varchar) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "areviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "approved" boolean, "author_name" varchar, "body" text, "created_at" datetime(6) NOT NULL, "rating" integer, "tour_id" integer NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_areviews_on_tour_id" ON "areviews" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "areviews" ("id","approved","author_name","body","created_at","rating","tour_id","updated_at")
+                     SELECT "id","approved","author_name","body","created_at","rating","tour_id","updated_at" FROM "reviews" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "reviews" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "approved" boolean, "author_name" varchar, "body" text, "created_at" datetime(6) NOT NULL, "rating" integer, "tour_id" integer NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cbf2a12b63"
+FOREIGN KEY ("tour_id")
+  REFERENCES "tours" ("id")
+) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_tour_id" ON "reviews" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "reviews" ("id","approved","author_name","body","created_at","rating","tour_id","updated_at")
+                     SELECT "id","approved","author_name","body","created_at","rating","tour_id","updated_at" FROM "areviews" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "areviews" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atour_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_ref" varchar, "created_at" datetime(6) NOT NULL, "email" varchar, "full_name" varchar, "num_passengers" integer, "phone" varchar, "pickup_point" varchar, "special_requests" text, "status" integer, "total_amount_cents" integer, "tour_id" integer NOT NULL, "travel_date" date, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atour_bookings_on_tour_id" ON "atour_bookings" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "atour_bookings" ("id","booking_ref","created_at","email","full_name","num_passengers","phone","pickup_point","special_requests","status","total_amount_cents","tour_id","travel_date","updated_at")
+                     SELECT "id","booking_ref","created_at","email","full_name","num_passengers","phone","pickup_point","special_requests","status","total_amount_cents","tour_id","travel_date","updated_at" FROM "tour_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "tour_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "tour_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_ref" varchar, "created_at" datetime(6) NOT NULL, "email" varchar, "full_name" varchar, "num_passengers" integer, "phone" varchar, "pickup_point" varchar, "special_requests" text, "status" integer, "total_amount_cents" integer, "tour_id" integer NOT NULL, "travel_date" date, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_80f3841990"
+FOREIGN KEY ("tour_id")
+  REFERENCES "tours" ("id")
+) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tour_bookings_on_tour_id" ON "tour_bookings" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "tour_bookings" ("id","booking_ref","created_at","email","full_name","num_passengers","phone","pickup_point","special_requests","status","total_amount_cents","tour_id","travel_date","updated_at")
+                     SELECT "id","booking_ref","created_at","email","full_name","num_passengers","phone","pickup_point","special_requests","status","total_amount_cents","tour_id","travel_date","updated_at" FROM "atour_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "atour_bookings" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "avehicle_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_ref" varchar, "created_at" datetime(6) NOT NULL, "email" varchar, "full_name" varchar, "notes" text, "num_passengers" integer, "phone" varchar, "pickup_date" date, "pickup_location" varchar, "return_date" date, "status" integer, "updated_at" datetime(6) NOT NULL, "vehicle_id" integer NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_avehicle_bookings_on_vehicle_id" ON "avehicle_bookings" ("vehicle_id") /*application='TaxiApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "avehicle_bookings" ("id","booking_ref","created_at","email","full_name","notes","num_passengers","phone","pickup_date","pickup_location","return_date","status","updated_at","vehicle_id")
+                     SELECT "id","booking_ref","created_at","email","full_name","notes","num_passengers","phone","pickup_date","pickup_location","return_date","status","updated_at","vehicle_id" FROM "vehicle_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "vehicle_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "vehicle_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_ref" varchar, "created_at" datetime(6) NOT NULL, "email" varchar, "full_name" varchar, "notes" text, "num_passengers" integer, "phone" varchar, "pickup_date" date, "pickup_location" varchar, "return_date" date, "status" integer, "updated_at" datetime(6) NOT NULL, "vehicle_id" integer NOT NULL, CONSTRAINT "fk_rails_ce9a2c48ef"
+FOREIGN KEY ("vehicle_id")
+  REFERENCES "vehicles" ("id")
+) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_vehicle_bookings_on_vehicle_id" ON "vehicle_bookings" ("vehicle_id") /*application='TaxiApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "vehicle_bookings" ("id","booking_ref","created_at","email","full_name","notes","num_passengers","phone","pickup_date","pickup_location","return_date","status","updated_at","vehicle_id")
+                     SELECT "id","booking_ref","created_at","email","full_name","notes","num_passengers","phone","pickup_date","pickup_location","return_date","status","updated_at","vehicle_id" FROM "avehicle_bookings" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "avehicle_bookings" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260302131632) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260302131631),
+(20260302131630),
+(20260302131629),
+(20260302131628),
+(20260302131627),
+(20260302131616),
+(20260302131559),
+(20260302131551),
+(20260302131526); /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-03-02 13:32:13.314484', '2026-03-02 13:32:13.314486') RETURNING "key" /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '3656b429bfb98d01731668bc85abf280f54f0043', '2026-03-02 13:32:13.315598', '2026-03-02 13:32:13.315599') RETURNING "key" /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = 'admin@karthiktours.com.au' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mAdminUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'admin@karthiktours.com.au' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mAdminUser Create (0.1ms)[0m  [1m[32mINSERT INTO "admin_users" ("created_at", "email", "encrypted_password", "remember_created_at", "reset_password_sent_at", "reset_password_token", "updated_at") VALUES ('2026-03-02 13:32:13.677080', 'admin@karthiktours.com.au', '$2a$12$D//p3L5wgVxNkV8kyIU6i..cxzsn/AGcZISTuLEC43ADGaxUh9s/2', NULL, NULL, NULL, '2026-03-02 13:32:13.677080') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Blue Mountains Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'blue-mountains-day-trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'blue-mountains-day-trip' LIMIT 1[0m
+  [1m[36mTour Create (0.1ms)[0m  [1m[32mINSERT INTO "tours" ("active", "created_at", "departure_time", "description", "duration", "featured_image", "max_passengers", "name", "pickup_location", "position", "price_cents", "slug", "updated_at") VALUES (TRUE, '2026-03-02 13:32:13.694284', '7:00 AM', 'Experience the dramatic scenery of the Blue Mountains World Heritage Area. Visit the iconic Three Sisters, Echo Point lookout, and Scenic World with breathtaking valley views. This full-day adventure includes stops at Leura village for coffee and shopping, Wentworth Falls, and the stunning Jamison Valley.', '1 Day', NULL, 13, 'Blue Mountains Day Trip', 'Parramatta Station', 1, 7500, 'blue-mountains-day-trip', '2026-03-02 13:32:13.694284') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Canberra Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'canberra-day-trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'canberra-day-trip' LIMIT 1[0m
+  [1m[36mTour Create (0.0ms)[0m  [1m[32mINSERT INTO "tours" ("active", "created_at", "departure_time", "description", "duration", "featured_image", "max_passengers", "name", "pickup_location", "position", "price_cents", "slug", "updated_at") VALUES (TRUE, '2026-03-02 13:32:13.697638', '6:00 AM', 'Discover Australia''s capital city on this informative and enjoyable day tour. Visit the Australian War Memorial, Parliament House, National Gallery of Australia, and Lake Burley Griffin. A perfect blend of history, culture, and architecture — all in one day from Sydney.', '1 Day', NULL, 13, 'Canberra Day Trip', 'Parramatta Station', 2, 11500, 'canberra-day-trip', '2026-03-02 13:32:13.697638') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Jervis Bay Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'jervis-bay-day-trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'jervis-bay-day-trip' LIMIT 1[0m
+  [1m[36mTour Create (0.1ms)[0m  [1m[32mINSERT INTO "tours" ("active", "created_at", "departure_time", "description", "duration", "featured_image", "max_passengers", "name", "pickup_location", "position", "price_cents", "slug", "updated_at") VALUES (TRUE, '2026-03-02 13:32:13.700927', '6:30 AM', 'Escape to one of Australia''s most pristine coastal destinations. Jervis Bay boasts some of the whitest sand in the world, crystal-clear turquoise waters, and abundant wildlife including dolphins, sea eagles, and kangaroos. Visit Hyams Beach, Huskisson village, and Booderee National Park.', '1 Day', NULL, 13, 'Jervis Bay Day Trip', 'Parramatta Station', 3, 11000, 'jervis-bay-day-trip', '2026-03-02 13:32:13.700927') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Kiama & South Coast' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'kiama-south-coast' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'kiama-south-coast' LIMIT 1[0m
+  [1m[36mTour Create (0.0ms)[0m  [1m[32mINSERT INTO "tours" ("active", "created_at", "departure_time", "description", "duration", "featured_image", "max_passengers", "name", "pickup_location", "position", "price_cents", "slug", "updated_at") VALUES (TRUE, '2026-03-02 13:32:13.704013', '7:00 AM', 'Explore the charming coastal town of Kiama and its famous Blowhole, then venture through stunning South Coast scenery. Visit Minnamurra Rainforest, the historic Jamberoo, Kiama Lighthouse, and enjoy fresh seafood at the harbour. A perfect mix of natural beauty and local culture.', '1 Day', NULL, 13, 'Kiama & South Coast', 'Parramatta Station', 4, 9500, 'kiama-south-coast', '2026-03-02 13:32:13.704013') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Nelson Bay & Port Stephens' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'nelson-bay-port-stephens' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'nelson-bay-port-stephens' LIMIT 1[0m
+  [1m[36mTour Create (0.0ms)[0m  [1m[32mINSERT INTO "tours" ("active", "created_at", "departure_time", "description", "duration", "featured_image", "max_passengers", "name", "pickup_location", "position", "price_cents", "slug", "updated_at") VALUES (TRUE, '2026-03-02 13:32:13.706853', '6:30 AM', 'Head north to the magnificent Port Stephens bay area — famous for its resident dolphin pods, pristine beaches, and the towering Stockton Sand Dunes. Experience a dolphin-watching cruise, quad biking on the dunes, and time to relax on the beautiful Fingal Bay or Shoal Bay beaches.', '1 Day', NULL, 13, 'Nelson Bay & Port Stephens', 'Parramatta Station', 5, 11000, 'nelson-bay-port-stephens', '2026-03-02 13:32:13.706853') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Snowy Mountains Adventure' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'snowy-mountains-adventure' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."id" IS NOT NULL AND "tours"."slug" = 'snowy-mountains-adventure' LIMIT 1[0m
+  [1m[36mTour Create (0.1ms)[0m  [1m[32mINSERT INTO "tours" ("active", "created_at", "departure_time", "description", "duration", "featured_image", "max_passengers", "name", "pickup_location", "position", "price_cents", "slug", "updated_at") VALUES (TRUE, '2026-03-02 13:32:13.709885', '5:30 AM', 'Journey to the rooftop of Australia — the magnificent Snowy Mountains and Kosciuszko National Park. In summer, explore alpine wildflower meadows and crystal-clear streams. In winter, experience the magic of Australia''s premier ski resorts. Visit Thredbo, Charlotte Pass, and Lake Jindabyne.', '1 Day', NULL, 13, 'Snowy Mountains Adventure', 'Parramatta Station', 6, 25000, 'snowy-mountains-adventure', '2026-03-02 13:32:13.709885') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mTour Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tours" /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota Camry (Sedan)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.0ms)[0m  [1m[32mINSERT INTO "vehicles" ("available", "capacity", "created_at", "description", "image", "name", "position", "updated_at", "vehicle_type") VALUES (TRUE, 4, '2026-03-02 13:32:13.715345', 'Comfortable executive sedan, perfect for airport transfers and small groups.', NULL, 'Toyota Camry (Sedan)', 1, '2026-03-02 13:32:13.715345', 'Sedan') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota Kluger (SUV)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.5ms)[0m  [1m[32mINSERT INTO "vehicles" ("available", "capacity", "created_at", "description", "image", "name", "position", "updated_at", "vehicle_type") VALUES (TRUE, 7, '2026-03-02 13:32:13.716732', 'Spacious 7-seater SUV with generous luggage space. Great for family trips.', NULL, 'Toyota Kluger (SUV)', 2, '2026-03-02 13:32:13.716732', 'SUV') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota HiAce (Van)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.6ms)[0m  [1m[32mINSERT INTO "vehicles" ("available", "capacity", "created_at", "description", "image", "name", "position", "updated_at", "vehicle_type") VALUES (TRUE, 13, '2026-03-02 13:32:13.718575', 'Full-size van for medium groups. Air-conditioned with individual seating.', NULL, 'Toyota HiAce (Van)', 3, '2026-03-02 13:32:13.718575', 'Van') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Hyundai iMax (Van)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.5ms)[0m  [1m[32mINSERT INTO "vehicles" ("available", "capacity", "created_at", "description", "image", "name", "position", "updated_at", "vehicle_type") VALUES (TRUE, 8, '2026-03-02 13:32:13.720538', '8-seater people-mover with reclining seats and extra comfort features.', NULL, 'Hyundai iMax (Van)', 4, '2026-03-02 13:32:13.720538', 'Van') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Rosa Minibus' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Create (0.5ms)[0m  [1m[32mINSERT INTO "vehicles" ("available", "capacity", "created_at", "description", "image", "name", "position", "updated_at", "vehicle_type") VALUES (TRUE, 24, '2026-03-02 13:32:13.722286', '24-seat minibus for larger groups, school excursions, and corporate events.', NULL, 'Rosa Minibus', 5, '2026-03-02 13:32:13.722286', 'Minibus') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "vehicles" /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Blue Mountains Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Jervis Bay Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Canberra Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Sarah M.' AND "reviews"."body" = 'Absolutely incredible experience! The Blue Mountai' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.1ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'Sarah M.', 'Absolutely incredible experience! The Blue Mountains tour was breathtaking. Our driver was so knowledgeable and made the whole day so special. Will definitely book again!', '2026-03-02 13:32:13.730250', 5, 1, '2026-03-02 13:32:13.730250') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'James K.' AND "reviews"."body" = 'Karthik Tours exceeded all expectations. The Jervi' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.6ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'James K.', 'Karthik Tours exceeded all expectations. The Jervis Bay trip was the highlight of our Sydney visit. Stunning beaches, amazing wildlife, and a fantastic guide. 100% recommend!', '2026-03-02 13:32:13.732269', 5, 3, '2026-03-02 13:32:13.732269') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Priya N.' AND "reviews"."body" = 'We booked the airport transfer and it was seamless' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.7ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'Priya N.', 'We booked the airport transfer and it was seamless. Driver was on time, vehicle was spotless, and he helped with all our luggage. Will always use Karthik Tours for our airport runs.', '2026-03-02 13:32:13.734270', 5, NULL, '2026-03-02 13:32:13.734270') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+Migrating to MakeReviewTourOptional (20260302133239)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='TaxiApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "areviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "approved" boolean, "author_name" varchar, "body" text, "created_at" datetime(6) NOT NULL, "rating" integer, "tour_id" integer NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_areviews_on_tour_id" ON "areviews" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "areviews" ("id","approved","author_name","body","created_at","rating","tour_id","updated_at")
+                     SELECT "id","approved","author_name","body","created_at","rating","tour_id","updated_at" FROM "reviews" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "reviews" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "approved" boolean, "author_name" varchar, "body" text, "created_at" datetime(6) NOT NULL, "rating" integer, "tour_id" integer, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cbf2a12b63"
+FOREIGN KEY ("tour_id")
+  REFERENCES "tours" ("id")
+) /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_tour_id" ON "reviews" ("tour_id") /*application='TaxiApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "reviews" ("id","approved","author_name","body","created_at","rating","tour_id","updated_at")
+                     SELECT "id","approved","author_name","body","created_at","rating","tour_id","updated_at" FROM "areviews" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "areviews" /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='TaxiApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260302133239') RETURNING "version" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+  [1m[36mAdminUser Load (0.1ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = 'admin@karthiktours.com.au' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Blue Mountains Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Canberra Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Jervis Bay Day Trip' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Kiama & South Coast' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Nelson Bay & Port Stephens' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Snowy Mountains Adventure' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTour Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tours" /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota Camry (Sedan)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota Kluger (SUV)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Toyota HiAce (Van)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Hyundai iMax (Van)' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."name" = 'Rosa Minibus' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "vehicles" /*application='TaxiApp'*/[0m
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Blue Mountains Day Trip' LIMIT 1[0m
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Jervis Bay Day Trip' LIMIT 1[0m
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."name" = 'Canberra Day Trip' LIMIT 1[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Sarah M.' AND "reviews"."body" = 'Absolutely incredible experience! The Blue Mountai' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.1ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'Sarah M.', 'Absolutely incredible experience! The Blue Mountains tour was breathtaking. Our driver was so knowledgeable and made the whole day so special. Will definitely book again!', '2026-03-02 13:32:52.383409', 5, 1, '2026-03-02 13:32:52.383409') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'James K.' AND "reviews"."body" = 'Karthik Tours exceeded all expectations. The Jervi' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'James K.', 'Karthik Tours exceeded all expectations. The Jervis Bay trip was the highlight of our Sydney visit. Stunning beaches, amazing wildlife, and a fantastic guide. 100% recommend!', '2026-03-02 13:32:52.385066', 5, 3, '2026-03-02 13:32:52.385066') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Priya N.' AND "reviews"."body" = 'We booked the airport transfer and it was seamless' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'Priya N.', 'We booked the airport transfer and it was seamless. Driver was on time, vehicle was spotless, and he helped with all our luggage. Will always use Karthik Tours for our airport runs.', '2026-03-02 13:32:52.386801', 5, NULL, '2026-03-02 13:32:52.386801') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Tom W.' AND "reviews"."body" = 'Went to Canberra for the first time and it was ama' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'Tom W.', 'Went to Canberra for the first time and it was amazing. Our guide knew everything about Australian history and politics. The War Memorial was incredibly moving. Great value for money.', '2026-03-02 13:32:52.388654', 5, 2, '2026-03-02 13:32:52.388654') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Mei L.' AND "reviews"."body" = 'My family of 6 hired the HiAce van for a day trip ' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.6ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'Mei L.', 'My family of 6 hired the HiAce van for a day trip and it was perfect. Spacious, comfortable, and our driver was like a local friend showing us his favourite spots. Highly recommended!', '2026-03-02 13:32:52.390419', 5, NULL, '2026-03-02 13:32:52.390419') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'David P.' AND "reviews"."body" = 'Very professional service from start to finish. Th' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'David P.', 'Very professional service from start to finish. The Snowy Mountains tour was long but worth every minute. Stunning scenery. Only minor suggestion: an earlier bathroom stop would be helpful.', '2026-03-02 13:32:52.392290', 4, NULL, '2026-03-02 13:32:52.392290') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Aisha R.' AND "reviews"."body" = 'Used Karthik Tours three times now — Blue Mountain' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'Aisha R.', 'Used Karthik Tours three times now — Blue Mountains, airport transfer, and vehicle hire. Every single experience has been top notch. Punctual, friendly, and very reasonable prices.', '2026-03-02 13:32:52.394049', 5, 1, '2026-03-02 13:32:52.394049') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_name" = 'Michael B.' AND "reviews"."body" = 'Took my parents on the Jervis Bay tour for Mum''s b' LIMIT 1 /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("approved", "author_name", "body", "created_at", "rating", "tour_id", "updated_at") VALUES (TRUE, 'Michael B.', 'Took my parents on the Jervis Bay tour for Mum''s birthday and it was magical. The dolphins were incredible and the beach was like something from a postcard. Thank you Karthik Tours!', '2026-03-02 13:32:52.395838', 5, 3, '2026-03-02 13:32:52.395838') RETURNING "id" /*application='TaxiApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TaxiApp'*/[0m
+  [1m[36mReview Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+  [1m[36mTour Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tours" /*application='TaxiApp'*/[0m
+  [1m[36mVehicle Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "vehicles" /*application='TaxiApp'*/[0m
+  [1m[36mReview Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+Started GET "/" for ::1 at 2026-03-03 00:33:40 +1100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+Processing by HomeController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:79
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:81
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:189
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:197
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  Rendered home/index.html.erb within layouts/application (Duration: 21.6ms | GC: 9.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | GC: 16.6ms)
+Completed 200 OK in 68ms (Views: 43.3ms | ActiveRecord: 1.6ms (7 queries, 0 cached) | GC: 16.6ms)
+
+
+Started GET "/" for ::1 at 2026-03-03 00:34:43 +1100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:79
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:81
+  [1m[36mReview Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:189
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:197
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  Rendered home/index.html.erb within layouts/application (Duration: 11.9ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | GC: 21.9ms)
+Completed 200 OK in 59ms (Views: 46.2ms | ActiveRecord: 1.9ms (7 queries, 0 cached) | GC: 23.1ms)
+
+
+Started GET "/%EF%BF%BD" for ::1 at 2026-03-03 00:34:43 +1100
+  
+ActionController::RoutingError (No route matches [GET] "/%EF%BF%BD"):
+  
+Started GET "/about" for ::1 at 2026-03-03 00:35:10 +1100
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tours" for ::1 at 2026-03-03 00:35:59 +1100
+Processing by ToursController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tours/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/index.html.erb:21
+  [1m[36mTour Load (0.3ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC /*action='index',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/index.html.erb:23
+  Rendered tours/index.html.erb within layouts/application (Duration: 5.4ms | GC: 1.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 1.1ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/tours/blue-mountains-day-trip" for ::1 at 2026-03-03 00:36:06 +1100
+Processing by ToursController#show as HTML
+  Parameters: {"slug" => "blue-mountains-day-trip"}
+  [1m[36mTour Load (0.3ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."slug" = 'blue-mountains-day-trip' LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/controllers/tours_controller.rb:7:in 'ToursController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering tours/show.html.erb within layouts/application
+  [1m[36mReview Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."tour_id" = 1 AND "reviews"."approved" = TRUE LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:73
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."tour_id" = 1 AND "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 4 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:77
+  [1m[36mTour Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE AND "tours"."id" != 1 LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:122
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE AND "tours"."id" != 1 ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 3 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:126
+  Rendered tours/show.html.erb within layouts/application (Duration: 6.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 8.7ms | ActiveRecord: 0.9ms (5 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/tours" for ::1 at 2026-03-03 00:37:27 +1100
+Processing by ToursController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tours/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/index.html.erb:21
+  [1m[36mTour Load (0.4ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC /*action='index',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/index.html.erb:23
+  Rendered tours/index.html.erb within layouts/application (Duration: 4.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.6ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/bookings/tour/new" for ::1 at 2026-03-03 00:37:30 +1100
+Processing by Bookings::ToursController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bookings/tours/new.html.erb within layouts/application
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC /*action='new',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/bookings/tours/new.html.erb:36
+  Rendered bookings/tours/new.html.erb within layouts/application (Duration: 13.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 15.5ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 2.4ms)
+
+
+Started GET "/bookings/airport/new" for ::1 at 2026-03-03 00:37:47 +1100
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+Processing by Bookings::AirportsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bookings/airports/new.html.erb within layouts/application
+  Rendered bookings/airports/new.html.erb within layouts/application (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 6.6ms | ActiveRecord: 0.9ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bookings/airport/new" for ::1 at 2026-03-03 00:38:25 +1100
+Processing by Bookings::AirportsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bookings/airports/new.html.erb within layouts/application
+  Rendered bookings/airports/new.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bookings/vehicle/new" for ::1 at 2026-03-03 00:38:28 +1100
+Processing by Bookings::VehiclesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bookings/vehicles/new.html.erb within layouts/application
+  [1m[36mVehicle Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vehicles" WHERE "vehicles"."available" = TRUE LIMIT 1 /*action='new',application='TaxiApp',controller='vehicles'*/[0m
+  ↳ app/views/bookings/vehicles/new.html.erb:28
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."available" = TRUE ORDER BY "vehicles"."position" ASC, "vehicles"."name" ASC /*action='new',application='TaxiApp',controller='vehicles'*/[0m
+  ↳ app/views/bookings/vehicles/new.html.erb:32
+  Rendered bookings/vehicles/new.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 7.7ms | ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/gallery" for ::1 at 2026-03-03 00:38:37 +1100
+Processing by GalleryController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gallery/index.html.erb within layouts/application
+  [1m[36mGalleryImage Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "gallery_images" LIMIT 1 /*action='index',application='TaxiApp',controller='gallery'*/[0m
+  ↳ app/views/gallery/index.html.erb:14
+  Rendered gallery/index.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 7.1ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/reviews" for ::1 at 2026-03-03 00:38:39 +1100
+Processing by ReviewsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering reviews/index.html.erb within layouts/application
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:18
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:20
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1[0m
+  ↳ app/views/reviews/index.html.erb:30
+  Rendered reviews/index.html.erb within layouts/application (Duration: 21.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 23.4ms | ActiveRecord: 1.6ms (9 queries, 4 cached) | GC: 0.0ms)
+
+
+Started GET "/contact" for ::1 at 2026-03-03 00:38:52 +1100
+Processing by PagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/contact.html.erb within layouts/application
+  Rendered pages/contact.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bookings/tour/new" for ::1 at 2026-03-03 00:39:01 +1100
+Processing by Bookings::ToursController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bookings/tours/new.html.erb within layouts/application
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC /*action='new',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/bookings/tours/new.html.erb:36
+  Rendered bookings/tours/new.html.erb within layouts/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 4.9ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/bookings/tour" for ::1 at 2026-03-03 00:39:12 +1100
+Processing by Bookings::ToursController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "tour_booking" => {"tour_id" => "4", "travel_date" => "", "num_passengers" => "1", "pickup_point" => "", "full_name" => "", "email" => "[FILTERED]", "phone" => "", "special_requests" => ""}, "commit" => "Confirm Booking →"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/controllers/bookings/tours_controller.rb:10:in 'Bookings::ToursController#create'
+  [1m[36mTour Load (1.8ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 4 LIMIT 1 /*action='create',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/controllers/bookings/tours_controller.rb:10:in 'Bookings::ToursController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/controllers/bookings/tours_controller.rb:10:in 'Bookings::ToursController#create'
+  Rendering layout layouts/application.html.erb
+  Rendering bookings/tours/new.html.erb within layouts/application
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC /*action='create',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/bookings/tours/new.html.erb:36
+  Rendered bookings/tours/new.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | GC: 12.5ms)
+Completed 422 Unprocessable Content in 30ms (Views: 20.4ms | ActiveRecord: 2.2ms (2 queries, 0 cached) | GC: 12.5ms)
+
+
+Started GET "/" for ::1 at 2026-03-03 00:39:34 +1100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:79
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:81
+  [1m[36mReview Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:189
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:197
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  Rendered home/index.html.erb within layouts/application (Duration: 9.3ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | GC: 0.7ms)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.7ms (7 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/%EF%BF%BD" for ::1 at 2026-03-03 00:39:34 +1100
+  
+ActionController::RoutingError (No route matches [GET] "/%EF%BF%BD"):
+  
+Started GET "/" for ::1 at 2026-03-03 00:40:15 +1100
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:79
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:81
+  [1m[36mReview Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:189
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:197
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  Rendered home/index.html.erb within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 1.4ms (7 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/%EF%BF%BD" for ::1 at 2026-03-03 00:40:15 +1100
+  
+ActionController::RoutingError (No route matches [GET] "/%EF%BF%BD"):
+  
+Started GET "/" for ::1 at 2026-03-03 00:40:26 +1100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:79
+  [1m[36mTour Load (0.3ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:81
+  [1m[36mReview Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:189
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:197
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  Rendered home/index.html.erb within layouts/application (Duration: 12.3ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | GC: 0.2ms)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 1.2ms (7 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/%EF%BF%BD" for ::1 at 2026-03-03 00:40:26 +1100
+  
+ActionController::RoutingError (No route matches [GET] "/%EF%BF%BD"):
+  
+Started GET "/" for ::1 at 2026-03-03 00:41:26 +1100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaxiApp'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/admin/dev/demo/taxi-app/config/routes.rb:2)
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:79
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:81
+  [1m[36mReview Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:189
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:197
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  Rendered home/index.html.erb within layouts/application (Duration: 10.5ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | GC: 18.6ms)
+Completed 200 OK in 54ms (Views: 42.8ms | ActiveRecord: 1.6ms (7 queries, 0 cached) | GC: 19.6ms)
+
+
+Started GET "/%EF%BF%BD" for ::1 at 2026-03-03 00:41:26 +1100
+  
+ActionController::RoutingError (No route matches [GET] "/%EF%BF%BD"):
+  
+Started GET "/contact" for ::1 at 2026-03-03 00:46:12 +1100
+Processing by PagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/contact.html.erb within layouts/application
+  Rendered pages/contact.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/reviews" for ::1 at 2026-03-03 00:46:26 +1100
+Processing by ReviewsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering reviews/index.html.erb within layouts/application
+  [1m[36mReview Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:18
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:20
+  [1m[36mTour Load (0.3ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='reviews'*/[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1[0m
+  ↳ app/views/reviews/index.html.erb:30
+  [1m[36mCACHE Tour Load (0.0ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1[0m
+  ↳ app/views/reviews/index.html.erb:30
+  Rendered reviews/index.html.erb within layouts/application (Duration: 39.1ms | GC: 18.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.0ms | GC: 18.7ms)
+Completed 200 OK in 45ms (Views: 40.4ms | ActiveRecord: 1.5ms (9 queries, 4 cached) | GC: 18.7ms)
+
+
+Started GET "/gallery" for ::1 at 2026-03-03 00:46:27 +1100
+Processing by GalleryController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gallery/index.html.erb within layouts/application
+  [1m[36mGalleryImage Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "gallery_images" LIMIT 1 /*action='index',application='TaxiApp',controller='gallery'*/[0m
+  ↳ app/views/gallery/index.html.erb:14
+  Rendered gallery/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 5.8ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 4.5ms)
+
+
+Started GET "/" for ::1 at 2026-03-03 00:46:28 +1100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:79
+  [1m[36mTour Load (0.4ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:81
+  [1m[36mReview Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."approved" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:189
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 6 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:197
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.2ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1 /*action='index',application='TaxiApp',controller='home'*/[0m
+  ↳ app/views/home/index.html.erb:207
+  Rendered home/index.html.erb within layouts/application (Duration: 13.8ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | GC: 1.3ms)
+Completed 200 OK in 20ms (Views: 15.3ms | ActiveRecord: 1.4ms (7 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/%EF%BF%BD" for ::1 at 2026-03-03 00:46:28 +1100
+  
+ActionController::RoutingError (No route matches [GET] "/%EF%BF%BD"):
+  
+Started GET "/tours/blue-mountains-day-trip" for ::1 at 2026-03-03 00:50:16 +1100
+Processing by ToursController#show as HTML
+  Parameters: {"slug" => "blue-mountains-day-trip"}
+  [1m[36mTour Load (0.3ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."slug" = 'blue-mountains-day-trip' LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/controllers/tours_controller.rb:7:in 'ToursController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering tours/show.html.erb within layouts/application
+  [1m[36mReview Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."tour_id" = 1 AND "reviews"."approved" = TRUE LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:73
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."tour_id" = 1 AND "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 4 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:77
+  [1m[36mTour Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE AND "tours"."id" != 1 LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:122
+  [1m[36mTour Load (0.1ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE AND "tours"."id" != 1 ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 3 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:126
+  Rendered tours/show.html.erb within layouts/application (Duration: 5.8ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 1.0ms)
+Completed 200 OK in 31ms (Views: 8.0ms | ActiveRecord: 0.6ms (5 queries, 0 cached) | GC: 13.9ms)
+
+
+Started GET "/tours/jervis-bay-day-trip" for ::1 at 2026-03-03 00:50:20 +1100
+Processing by ToursController#show as HTML
+  Parameters: {"slug" => "jervis-bay-day-trip"}
+  [1m[36mTour Load (0.4ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."slug" = 'jervis-bay-day-trip' LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/controllers/tours_controller.rb:7:in 'ToursController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering tours/show.html.erb within layouts/application
+  [1m[36mReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."tour_id" = 3 AND "reviews"."approved" = TRUE LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:73
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."tour_id" = 3 AND "reviews"."approved" = TRUE ORDER BY "reviews"."created_at" DESC LIMIT 4 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:77
+  [1m[36mTour Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE AND "tours"."id" != 3 LIMIT 1 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:122
+  [1m[36mTour Load (0.5ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE AND "tours"."id" != 3 ORDER BY "tours"."position" ASC, "tours"."name" ASC LIMIT 3 /*action='show',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/show.html.erb:126
+  Rendered tours/show.html.erb within layouts/application (Duration: 8.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 10.2ms | ActiveRecord: 1.8ms (5 queries, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/tours" for ::1 at 2026-03-03 00:50:48 +1100
+Processing by ToursController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tours/index.html.erb within layouts/application
+  [1m[36mTour Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tours" WHERE "tours"."active" = TRUE LIMIT 1 /*action='index',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/index.html.erb:21
+  [1m[36mTour Load (0.7ms)[0m  [1m[34mSELECT "tours".* FROM "tours" WHERE "tours"."active" = TRUE ORDER BY "tours"."position" ASC, "tours"."name" ASC /*action='index',application='TaxiApp',controller='tours'*/[0m
+  ↳ app/views/tours/index.html.erb:23
+  Rendered tours/index.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | GC: 0.8ms)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/about" for ::1 at 2026-03-03 00:51:09 +1100
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | GC: 0.6ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+

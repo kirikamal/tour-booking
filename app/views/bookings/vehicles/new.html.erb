@@ -1,0 +1,104 @@
+<% content_for :title, "Hire a Vehicle" %>
+
+<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-14 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <p class="section-subtitle" style="color:#f59e0b;">Private Vehicle Hire</p>
+    <h1 class="font-display text-4xl font-extrabold mt-1">Hire a Vehicle</h1>
+    <p class="text-gray-300 mt-2">Professional driver included. Choose your vehicle and journey.</p>
+  </div>
+</div>
+
+<section class="py-14 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+      <%= form_with model: @booking, url: bookings_vehicle_path, local: true, class: "space-y-8" do |f| %>
+
+        <% if @booking.errors.any? %>
+          <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+            <p class="font-semibold text-red-700 mb-2">Please fix the following errors:</p>
+            <ul class="list-disc pl-4 space-y-1">
+              <% @booking.errors.full_messages.each do |msg| %>
+                <li class="text-red-600 text-sm"><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <% if @vehicles.any? %>
+          <div>
+            <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">1. Choose Your Vehicle</h2>
+            <div class="grid gap-3">
+              <% @vehicles.each do |vehicle| %>
+                <label class="flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer transition-all hover:border-amber-300 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+                  <%= f.radio_button :vehicle_id, vehicle.id, class: "w-4 h-4 accent-amber-500 flex-shrink-0" %>
+                  <div class="flex-1 min-w-0">
+                    <div class="font-semibold text-[#0d1b2e]"><%= vehicle.name %></div>
+                    <% if vehicle.description.present? %>
+                      <div class="text-gray-500 text-xs mt-0.5 line-clamp-1"><%= vehicle.description %></div>
+                    <% end %>
+                  </div>
+                  <div class="text-right flex-shrink-0">
+                    <span class="inline-block text-xs font-medium bg-[#1e3a5f]/10 text-[#1e3a5f] px-2 py-0.5 rounded-full"><%= vehicle.vehicle_type %></span>
+                    <% if vehicle.capacity.present? %>
+                      <div class="text-gray-500 text-xs mt-0.5">Up to <%= vehicle.capacity %> pax</div>
+                    <% end %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <div class="bg-amber-50 rounded-xl p-4 border border-amber-100 text-sm">
+            <p class="text-amber-700">No vehicles listed yet. <%= link_to "Contact us", contact_path, class: "underline" %> to arrange a custom hire.</p>
+          </div>
+        <% end %>
+
+        <div>
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">2. Booking Dates</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <%= f.label :pickup_date, "Pickup Date *", class: "form-label" %>
+              <%= f.date_field :pickup_date, class: "form-input", min: Date.today + 1 %>
+            </div>
+            <div>
+              <%= f.label :return_date, "Return Date *", class: "form-label" %>
+              <%= f.date_field :return_date, class: "form-input", min: Date.today + 1 %>
+            </div>
+            <div class="sm:col-span-2">
+              <%= f.label :pickup_location, "Pickup Location / Address *", class: "form-label" %>
+              <%= f.text_field :pickup_location, class: "form-input", placeholder: "e.g. 15 Smith St, Parramatta NSW 2150" %>
+            </div>
+            <div>
+              <%= f.label :num_passengers, "Number of Passengers", class: "form-label" %>
+              <%= f.number_field :num_passengers, class: "form-input", min: 1, max: 50, value: (@booking.num_passengers || 1) %>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">3. Your Details</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="sm:col-span-2">
+              <%= f.label :full_name, "Full Name *", class: "form-label" %>
+              <%= f.text_field :full_name, class: "form-input", placeholder: "John Smith" %>
+            </div>
+            <div>
+              <%= f.label :email, "Email Address *", class: "form-label" %>
+              <%= f.email_field :email, class: "form-input", placeholder: "you@example.com" %>
+            </div>
+            <div>
+              <%= f.label :phone, "Phone Number *", class: "form-label" %>
+              <%= f.telephone_field :phone, class: "form-input", placeholder: "04xx xxx xxx" %>
+            </div>
+            <div class="sm:col-span-2">
+              <%= f.label :notes, "Additional Notes (optional)", class: "form-label" %>
+              <%= f.text_area :notes, class: "form-input", rows: 3, placeholder: "Itinerary, special requirements, destinations to visit..." %>
+            </div>
+          </div>
+        </div>
+
+        <%= f.submit "Request Vehicle Hire →", class: "btn-primary w-full text-center py-4 text-base cursor-pointer block" %>
+      <% end %>
+    </div>
+  </div>
+</section>

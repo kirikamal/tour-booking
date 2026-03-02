@@ -1,0 +1,2 @@
+module Bookings::VehiclesHelper
+end

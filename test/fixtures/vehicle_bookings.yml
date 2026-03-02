@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle: one
+  booking_ref: MyString
+  full_name: MyString
+  email: MyString
+  phone: MyString
+  pickup_date: 2026-03-03
+  return_date: 2026-03-03
+  pickup_location: MyString
+  num_passengers: 1
+  notes: MyText
+  status: 1
+
+two:
+  vehicle: two
+  booking_ref: MyString
+  full_name: MyString
+  email: MyString
+  phone: MyString
+  pickup_date: 2026-03-03
+  return_date: 2026-03-03
+  pickup_location: MyString
+  num_passengers: 1
+  notes: MyText
+  status: 1

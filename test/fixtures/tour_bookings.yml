@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tour: one
+  booking_ref: MyString
+  full_name: MyString
+  email: MyString
+  phone: MyString
+  travel_date: 2026-03-03
+  num_passengers: 1
+  pickup_point: MyString
+  special_requests: MyText
+  status: 1
+  total_amount_cents: 1
+
+two:
+  tour: two
+  booking_ref: MyString
+  full_name: MyString
+  email: MyString
+  phone: MyString
+  travel_date: 2026-03-03
+  num_passengers: 1
+  pickup_point: MyString
+  special_requests: MyText
+  status: 1
+  total_amount_cents: 1

@@ -1,0 +1,106 @@
+<% content_for :title, "Book Airport Transfer" %>
+
+<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-14 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <p class="section-subtitle" style="color:#f59e0b;">Hassle-Free Travel</p>
+    <h1 class="font-display text-4xl font-extrabold mt-1">Airport Transfer Booking</h1>
+    <p class="text-gray-300 mt-2">Reliable, on-time airport pickups and drop-offs across Sydney.</p>
+  </div>
+</div>
+
+<section class="py-14 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+      <%= form_with model: @booking, url: bookings_airport_path, local: true, class: "space-y-8" do |f| %>
+
+        <% if @booking.errors.any? %>
+          <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+            <p class="font-semibold text-red-700 mb-2">Please fix the following errors:</p>
+            <ul class="list-disc pl-4 space-y-1">
+              <% @booking.errors.full_messages.each do |msg| %>
+                <li class="text-red-600 text-sm"><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div>
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">1. Transfer Type</h2>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="flex flex-col items-center gap-2 p-5 border-2 rounded-xl cursor-pointer transition-all hover:border-amber-300 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50 text-center">
+              <%= f.radio_button :trip_type, "pickup", class: "w-4 h-4 accent-amber-500" %>
+              <span class="text-2xl">✈️</span>
+              <span class="font-semibold text-[#0d1b2e]">Airport Pickup</span>
+              <span class="text-gray-500 text-xs">We collect you from the airport</span>
+            </label>
+            <label class="flex flex-col items-center gap-2 p-5 border-2 rounded-xl cursor-pointer transition-all hover:border-amber-300 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50 text-center">
+              <%= f.radio_button :trip_type, "dropoff", class: "w-4 h-4 accent-amber-500" %>
+              <span class="text-2xl">🚐</span>
+              <span class="font-semibold text-[#0d1b2e]">Airport Drop-off</span>
+              <span class="text-gray-500 text-xs">We take you to the airport</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">2. Flight Details</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <%= f.label :airport, "Airport *", class: "form-label" %>
+              <%= f.select :airport, AirportBooking::AIRPORTS, { prompt: "Select airport" }, class: "form-input" %>
+            </div>
+            <div>
+              <%= f.label :flight_number, "Flight Number", class: "form-label" %>
+              <%= f.text_field :flight_number, class: "form-input", placeholder: "e.g. QF123" %>
+            </div>
+            <div>
+              <%= f.label :flight_datetime, "Flight Date & Time", class: "form-label" %>
+              <%= f.datetime_local_field :flight_datetime, class: "form-input" %>
+            </div>
+            <div>
+              <%= f.label :num_passengers, "Passengers *", class: "form-label" %>
+              <%= f.number_field :num_passengers, class: "form-input", min: 1, max: 13, value: (@booking.num_passengers || 1) %>
+            </div>
+            <div>
+              <%= f.label :vehicle_type, "Preferred Vehicle", class: "form-label" %>
+              <%= f.select :vehicle_type, AirportBooking::VEHICLE_TYPES, { prompt: "Any available" }, class: "form-input" %>
+            </div>
+            <div class="sm:col-span-2">
+              <%= f.label :address, "Home / Hotel Address *", class: "form-label" %>
+              <%= f.text_area :address, class: "form-input", rows: 2, placeholder: "Street address, suburb, state, postcode" %>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">3. Your Details</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="sm:col-span-2">
+              <%= f.label :full_name, "Full Name *", class: "form-label" %>
+              <%= f.text_field :full_name, class: "form-input", placeholder: "John Smith" %>
+            </div>
+            <div>
+              <%= f.label :email, "Email Address *", class: "form-label" %>
+              <%= f.email_field :email, class: "form-input", placeholder: "you@example.com" %>
+            </div>
+            <div>
+              <%= f.label :phone, "Phone Number *", class: "form-label" %>
+              <%= f.telephone_field :phone, class: "form-input", placeholder: "04xx xxx xxx" %>
+            </div>
+            <div class="sm:col-span-2">
+              <%= f.label :notes, "Additional Notes (optional)", class: "form-label" %>
+              <%= f.text_area :notes, class: "form-input", rows: 3, placeholder: "Number of bags, car seat required, etc." %>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 rounded-xl p-4 border border-blue-100 text-sm text-gray-600">
+          <p class="font-semibold text-blue-700 mb-1">✈️ Our Promise</p>
+          We monitor your flight and adjust pickup time automatically for any delays. Available 24/7.
+        </div>
+
+        <%= f.submit "Book Transfer →", class: "btn-primary w-full text-center py-4 text-base cursor-pointer block" %>
+      <% end %>
+    </div>
+  </div>
+</section>

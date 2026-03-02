@@ -1,0 +1,61 @@
+<% content_for :title, "Gallery" %>
+
+<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-16 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <p class="section-subtitle" style="color:#f59e0b;">Photo Gallery</p>
+    <h1 class="font-display text-4xl sm:text-5xl font-extrabold mt-1">Moments &amp; Memories</h1>
+    <p class="text-gray-300 mt-3 max-w-xl">A glimpse into the incredible experiences we create every day — from mountain peaks to coastal shores.</p>
+  </div>
+</div>
+
+<section class="py-14 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <% if @images.any? %>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <% @images.each do |img| %>
+          <div class="group relative aspect-square rounded-xl overflow-hidden bg-gray-100 cursor-pointer">
+            <% if img.image.attached? %>
+              <%= image_tag img.image, class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" %>
+            <% else %>
+              <div class="w-full h-full bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2e] flex items-center justify-center">
+                <svg class="w-12 h-12 text-white/20" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              </div>
+            <% end %>
+            <% if img.caption.present? %>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <p class="text-white text-xs font-medium"><%= img.caption %></p>
+              </div>
+            <% end %>
+            <% if img.category.present? %>
+              <span class="absolute top-2 left-2 bg-amber-500 text-[#0d1b2e] text-xs font-bold px-2 py-0.5 rounded-full capitalize"><%= img.category %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <%# Placeholder gallery when no images uploaded yet %>
+      <div class="text-center py-6 mb-10">
+        <p class="text-gray-500">Our photo gallery is being updated. Check back soon!</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <% 9.times do |i| %>
+          <div class="aspect-square rounded-xl overflow-hidden bg-gradient-to-br <%= ["from-[#1e3a5f] to-[#0d1b2e]","from-amber-600 to-amber-800","from-orange-600 to-red-800","from-emerald-600 to-teal-800","from-blue-600 to-indigo-800","from-purple-600 to-pink-800","from-[#1e3a5f] to-amber-700","from-teal-600 to-cyan-800","from-rose-600 to-pink-800"][i] %> flex items-center justify-center">
+            <div class="text-center text-white/40">
+              <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p class="text-xs"><%= ["Blue Mountains","Jervis Bay","Canberra","Nelson Bay","Kiama","Snowy Mtns","Sydney CBD","Hunter Valley","Port Stephens"][i] %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section class="bg-amber-50 border-t border-amber-100 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+    <h3 class="font-display font-bold text-[#0d1b2e] text-2xl mb-2">Want to be in our gallery?</h3>
+    <p class="text-gray-600 mb-5">Share your photos from your trip with us on social media or via WhatsApp!</p>
+    <a href="https://wa.me/61470238634" target="_blank" class="btn-primary inline-block">Share Your Photos 📸</a>
+  </div>
+</section>

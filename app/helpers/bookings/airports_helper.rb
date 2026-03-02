@@ -1,0 +1,2 @@
+module Bookings::AirportsHelper
+end

@@ -1,0 +1,102 @@
+<% content_for :title, "Book a Tour" %>
+
+<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-14 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <p class="section-subtitle" style="color:#f59e0b;">Reserve Your Spot</p>
+    <h1 class="font-display text-4xl font-extrabold mt-1">Book a Tour</h1>
+    <p class="text-gray-300 mt-2">Fill in your details below and we'll confirm your booking promptly.</p>
+    <div class="flex items-center gap-2 mt-3 text-sm text-gray-400">
+      <%= link_to "Home", root_path, class: "hover:text-amber-400" %><span>/</span>
+      <%= link_to "Tours", tours_path, class: "hover:text-amber-400" %><span>/</span>
+      <span class="text-amber-400">Book</span>
+    </div>
+  </div>
+</div>
+
+<section class="py-14 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+      <%= form_with model: @booking, url: bookings_tour_path, local: true, class: "space-y-8" do |f| %>
+
+        <% if @booking.errors.any? %>
+          <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+            <p class="font-semibold text-red-700 mb-2">Please fix the following errors:</p>
+            <ul class="list-disc pl-4 space-y-1">
+              <% @booking.errors.full_messages.each do |msg| %>
+                <li class="text-red-600 text-sm"><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div>
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">1. Select Your Tour</h2>
+          <div class="grid gap-3">
+            <% @tours.each do |tour| %>
+              <label class="flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer transition-all hover:border-amber-300 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+                <%= f.radio_button :tour_id, tour.id, class: "w-4 h-4 accent-amber-500" %>
+                <div class="flex-1 min-w-0">
+                  <span class="font-semibold text-[#0d1b2e]"><%= tour.name %></span>
+                  <span class="text-gray-400 text-sm ml-2"><%= tour.departure_time.presence || "Day trip" %></span>
+                </div>
+                <span class="font-extrabold text-amber-500 text-xl flex-shrink-0"><%= tour.price_display %><span class="text-xs font-normal text-gray-400">/pp</span></span>
+              </label>
+            <% end %>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">2. Trip Details</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <%= f.label :travel_date, "Travel Date *", class: "form-label" %>
+              <%= f.date_field :travel_date, class: "form-input", min: Date.today + 1 %>
+            </div>
+            <div>
+              <%= f.label :num_passengers, "Number of Passengers *", class: "form-label" %>
+              <%= f.number_field :num_passengers, class: "form-input", min: 1, max: 20, value: (@booking.num_passengers || 1) %>
+            </div>
+            <div class="sm:col-span-2">
+              <%= f.label :pickup_point, "Pickup Address", class: "form-label" %>
+              <%= f.text_field :pickup_point, class: "form-input", placeholder: "e.g. 15 Smith St, Parramatta NSW 2150" %>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-4 pb-3 border-b border-gray-100">3. Your Details</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="sm:col-span-2">
+              <%= f.label :full_name, "Full Name *", class: "form-label" %>
+              <%= f.text_field :full_name, class: "form-input", placeholder: "John Smith" %>
+            </div>
+            <div>
+              <%= f.label :email, "Email Address *", class: "form-label" %>
+              <%= f.email_field :email, class: "form-input", placeholder: "you@example.com" %>
+            </div>
+            <div>
+              <%= f.label :phone, "Phone Number *", class: "form-label" %>
+              <%= f.telephone_field :phone, class: "form-input", placeholder: "04xx xxx xxx" %>
+            </div>
+            <div class="sm:col-span-2">
+              <%= f.label :special_requests, "Special Requests (optional)", class: "form-label" %>
+              <%= f.text_area :special_requests, class: "form-input", rows: 3, placeholder: "Dietary requirements, accessibility needs, etc." %>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 rounded-xl p-4 border border-amber-100 text-sm text-gray-600">
+          <p class="font-semibold text-amber-700 mb-1">💡 Payment Note</p>
+          We'll confirm your booking and send payment details via email or phone within 2 hours. No payment is collected online.
+        </div>
+
+        <%= f.submit "Confirm Booking →", class: "btn-primary w-full text-center py-4 text-base cursor-pointer block" %>
+      <% end %>
+    </div>
+
+    <div class="mt-5 text-center text-sm text-gray-500">
+      Need help? Call us at <a href="tel:+61470238634" class="text-amber-500 font-semibold">+61 470 238 634</a> or
+      <a href="https://wa.me/61470238634" target="_blank" class="text-green-600 font-semibold">WhatsApp us</a>
+    </div>
+  </div>
+</section>

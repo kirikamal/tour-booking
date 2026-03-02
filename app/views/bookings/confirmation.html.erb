@@ -1,0 +1,105 @@
+<% content_for :title, "Booking Confirmed" %>
+
+<section class="min-h-screen bg-gray-50 py-20">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6">
+
+    <div class="text-center mb-10">
+      <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
+        <svg class="w-10 h-10 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+      </div>
+      <h1 class="font-display text-3xl font-extrabold text-[#0d1b2e] mb-2">Booking Received!</h1>
+      <p class="text-gray-500">We'll confirm your booking and get in touch within 2 hours.</p>
+    </div>
+
+    <% if @booking %>
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-6">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+          <h2 class="font-display font-bold text-[#0d1b2e] text-lg">Booking Summary</h2>
+          <span class="bg-amber-100 text-amber-700 font-bold px-4 py-1.5 rounded-full text-sm"><%= @booking.booking_ref %></span>
+        </div>
+
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between">
+            <span class="text-gray-500">Name</span>
+            <span class="font-semibold text-[#0d1b2e]"><%= @booking.full_name %></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-500">Email</span>
+            <span class="font-semibold text-[#0d1b2e]"><%= @booking.email %></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-500">Phone</span>
+            <span class="font-semibold text-[#0d1b2e]"><%= @booking.phone %></span>
+          </div>
+
+          <% if @booking.is_a?(TourBooking) %>
+            <div class="pt-3 mt-3 border-t border-gray-100 flex justify-between">
+              <span class="text-gray-500">Tour</span>
+              <span class="font-semibold text-[#0d1b2e]"><%= @booking.tour.name %></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Travel Date</span>
+              <span class="font-semibold text-[#0d1b2e]"><%= @booking.travel_date.strftime("%-d %B %Y") %></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Passengers</span>
+              <span class="font-semibold text-[#0d1b2e]"><%= @booking.num_passengers %></span>
+            </div>
+          <% elsif @booking.is_a?(AirportBooking) %>
+            <div class="pt-3 mt-3 border-t border-gray-100 flex justify-between">
+              <span class="text-gray-500">Transfer Type</span>
+              <span class="font-semibold text-[#0d1b2e]"><%= @booking.trip_type.humanize %></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Airport</span>
+              <span class="font-semibold text-[#0d1b2e]"><%= @booking.airport %></span>
+            </div>
+            <% if @booking.flight_datetime.present? %>
+              <div class="flex justify-between">
+                <span class="text-gray-500">Flight Date</span>
+                <span class="font-semibold text-[#0d1b2e]"><%= @booking.flight_datetime.strftime("%-d %B %Y %H:%M") %></span>
+              </div>
+            <% end %>
+          <% elsif @booking.is_a?(VehicleBooking) %>
+            <div class="pt-3 mt-3 border-t border-gray-100 flex justify-between">
+              <span class="text-gray-500">Vehicle</span>
+              <span class="font-semibold text-[#0d1b2e]"><%= @booking.vehicle.name %></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Pickup Date</span>
+              <span class="font-semibold text-[#0d1b2e]"><%= @booking.pickup_date.strftime("%-d %B %Y") %></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Return Date</span>
+              <span class="font-semibold text-[#0d1b2e]"><%= @booking.return_date.strftime("%-d %B %Y") %></span>
+            </div>
+          <% end %>
+
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500">Status</span>
+            <span class="badge-pending"><%= @booking.status.humanize %></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 rounded-xl p-5 border border-amber-100 text-sm text-gray-600 mb-6">
+        <p class="font-semibold text-amber-700 mb-2">📧 What happens next?</p>
+        <ol class="list-decimal pl-4 space-y-1">
+          <li>We'll review your booking and contact you within 2 hours</li>
+          <li>You'll receive confirmation along with payment instructions</li>
+          <li>On the day, your driver will contact you 30 minutes before pickup</li>
+        </ol>
+      </div>
+    <% end %>
+
+    <div class="flex flex-col sm:flex-row gap-3">
+      <%= link_to "← Back to Home", root_path, class: "btn-secondary text-center flex-1" %>
+      <%= link_to "Book Another Tour", new_bookings_tour_path, class: "btn-primary text-center flex-1" %>
+    </div>
+
+    <div class="mt-6 text-center text-sm text-gray-500">
+      Questions? Call <a href="tel:+61470238634" class="text-amber-500 font-semibold">+61 470 238 634</a> or
+      <a href="https://wa.me/61470238634" class="text-green-600 font-semibold">WhatsApp</a>
+    </div>
+  </div>
+</section>

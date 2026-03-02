@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author_name: MyString
+  rating: 1
+  body: MyText
+  tour: one
+  approved: false
+
+two:
+  author_name: MyString
+  rating: 1
+  body: MyText
+  tour: two
+  approved: false

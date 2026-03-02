@@ -1,0 +1,96 @@
+<% content_for :title, "Contact Us" %>
+
+<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-16 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <p class="section-subtitle" style="color:#f59e0b;">Get In Touch</p>
+    <h1 class="font-display text-4xl sm:text-5xl font-extrabold mt-1">Contact Us</h1>
+    <p class="text-gray-300 mt-3">We're here to help. Reach out via phone, WhatsApp, email, or the form below.</p>
+  </div>
+</div>
+
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+      <div class="space-y-4">
+        <% [
+          ["📞","Phone","+61 470 238 634","tel:+61470238634","Call anytime 6AM–9PM"],
+          ["💬","WhatsApp","Chat Now","https://wa.me/61470238634","Fastest response method"],
+          ["📧","Email","info@prasannatoursandtransport.com.au","mailto:info@prasannatoursandtransport.com.au","Response within 2 hours"],
+          ["📍","Address","Pendle Hill, NSW 2145","#","Sydney, Australia"]
+        ].each do |icon, label, value, link, desc| %>
+          <a href="<%= link %>" class="flex gap-4 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:border-amber-300 transition-colors group">
+            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 group-hover:bg-amber-500 transition-colors"><%= icon %></div>
+            <div>
+              <p class="text-gray-400 text-xs font-medium uppercase tracking-wide"><%= label %></p>
+              <p class="font-semibold text-[#0d1b2e] text-sm mt-0.5 break-all"><%= value %></p>
+              <p class="text-gray-400 text-xs mt-0.5"><%= desc %></p>
+            </div>
+          </a>
+        <% end %>
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <p class="text-gray-400 text-xs font-medium uppercase tracking-wide mb-3">Operating Hours</p>
+          <div class="space-y-1.5 text-sm">
+            <% [["Mon – Fri","6:00 AM – 9:00 PM"],["Saturday","6:00 AM – 9:00 PM"],["Sunday","7:00 AM – 7:00 PM"]].each do |day, hours| %>
+              <div class="flex justify-between">
+                <span class="text-gray-600"><%= day %></span>
+                <span class="font-semibold text-[#0d1b2e]"><%= hours %></span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+          <h2 class="font-display font-bold text-[#0d1b2e] text-xl mb-6">Send Us a Message</h2>
+          <%= form_with url: contact_submit_path, method: :post, local: true, class: "space-y-5" do |f| %>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="form-label" for="name">Full Name *</label>
+                <input type="text" name="name" id="name" class="form-input" placeholder="John Smith" required>
+              </div>
+              <div>
+                <label class="form-label" for="email">Email Address *</label>
+                <input type="email" name="email" id="email" class="form-input" placeholder="you@example.com" required>
+              </div>
+              <div>
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" class="form-input" placeholder="04xx xxx xxx">
+              </div>
+              <div>
+                <label class="form-label" for="subject">Subject</label>
+                <select name="subject" id="subject" class="form-input">
+                  <option value="">Select a topic</option>
+                  <option value="tour">Tour Enquiry</option>
+                  <option value="airport">Airport Transfer</option>
+                  <option value="vehicle">Vehicle Hire</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="sm:col-span-2">
+                <label class="form-label" for="message">Message *</label>
+                <textarea name="message" id="message" class="form-input" rows="5" placeholder="How can we help? Include dates, group size, or special requirements..." required></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary w-full text-center py-4 text-base">Send Message →</button>
+          <% end %>
+          <p class="text-gray-400 text-xs text-center mt-4">Or reach us instantly on <a href="https://wa.me/61470238634" class="text-green-600 font-semibold" target="_blank">WhatsApp</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <% [[new_bookings_tour_path,"🗺️","Book a Tour","Reserve your spot on a day trip"],[new_bookings_airport_path,"✈️","Airport Transfer","Reliable airport pickup or drop-off"],[new_bookings_vehicle_path,"🚐","Hire a Vehicle","Get a vehicle with professional driver"]].each do |path, icon, title, desc| %>
+        <%= link_to path, class: "flex items-center gap-4 bg-white rounded-xl p-4 border border-gray-100 hover:border-amber-300 transition-colors shadow-sm group" do %>
+          <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-xl flex-shrink-0 group-hover:bg-amber-500 transition-colors"><%= icon %></div>
+          <div>
+            <p class="font-semibold text-[#0d1b2e]"><%= title %></p>
+            <p class="text-gray-400 text-xs"><%= desc %></p>
+          </div>
+          <svg class="w-4 h-4 text-gray-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>

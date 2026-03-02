@@ -1,0 +1,71 @@
+<% content_for :title, "About Us" %>
+
+<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-20 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="max-w-2xl">
+      <p class="section-subtitle" style="color:#f59e0b;">Our Story</p>
+      <h1 class="font-display text-4xl sm:text-5xl font-extrabold mt-1 mb-4">About Prasanna Tours &amp; Transport</h1>
+      <p class="text-gray-300 text-lg leading-relaxed">A decade of passion, professionalism, and unforgettable Australian adventures — all from Sydney.</p>
+    </div>
+  </div>
+</div>
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="section-subtitle">Who We Are</p>
+        <h2 class="section-title mb-6">Trusted Sydney Travel<br>Since 2015</h2>
+        <div class="space-y-4 text-gray-600 leading-relaxed">
+          <p>Prasanna Tours &amp; Transport was founded with a simple mission: to show both locals and visitors the very best of Australia in the most comfortable and affordable way possible.</p>
+          <p>Based in Pendle Hill, Sydney, we've spent over a decade perfecting our day tour routes, building relationships with local communities, and delivering the kind of personalised service that keeps our travellers coming back time and again.</p>
+          <p>From the dramatic cliffs of the Blue Mountains to the pristine beaches of Jervis Bay, our carefully curated day trips take the hassle out of travel so you can focus on making memories.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <% [["10+","Years Experience","bg-amber-500"],["2000+","Happy Travellers","bg-[#1e3a5f]"],["6","Tour Destinations","bg-orange-500"],["95%","5-Star Reviews","bg-emerald-600"]].each do |num, label, bg| %>
+          <div class="<%= bg %> rounded-2xl p-8 text-white text-center">
+            <div class="font-display text-4xl font-extrabold mb-1"><%= num %></div>
+            <div class="text-white/80 text-sm"><%= label %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 section-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <p class="section-subtitle">Our Values</p>
+      <h2 class="section-title">What Drives Us Every Day</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <% [
+        ["Safety First","Every vehicle is regularly serviced and every driver is licensed. Your safety is non-negotiable.","🛡️"],
+        ["Genuine Hospitality","We treat every guest like family — warm welcomes, local stories, genuine care throughout.","🤝"],
+        ["Honest Pricing","No hidden fees or surprises. Our prices are inclusive and transparent.","💰"],
+        ["Environmental Respect","We operate responsibly, respecting the natural environments we take you to visit.","🌿"],
+        ["Punctuality Promise","We value your time. Our drivers are always on time, every time.","⏰"],
+        ["Local Expertise","Our drivers are locals who've explored every corner of NSW.","🗺️"]
+      ].each do |title, desc, icon| %>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-3"><%= icon %></div>
+          <h3 class="font-display font-bold text-[#0d1b2e] text-lg mb-2"><%= title %></h3>
+          <p class="text-gray-500 text-sm leading-relaxed"><%= desc %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="section-navy py-16 text-center">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <h2 class="font-display text-3xl font-extrabold text-white mb-4">Ready to Explore with Us?</h2>
+    <p class="text-gray-400 mb-8">Book your next Sydney adventure or get in touch with our friendly team.</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <%= link_to "See Our Tours", tours_path, class: "btn-primary" %>
+      <%= link_to "Contact Us", contact_path, class: "btn-outline-white" %>
+    </div>
+  </div>
+</section>
