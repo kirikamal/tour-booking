@@ -24,7 +24,7 @@ gem "bcrypt", "~> 3.1.7"
 
 # Admin panel
 gem "activeadmin"
-gem "devise", "~> 4.9"
+gem "devise", "~> 5.0"
 
 # Pagination
 gem "pagy", "~> 9.3"
