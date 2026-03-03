@@ -1,10 +1,12 @@
 <%# ── Hero Section ── %>
-<section class="relative min-h-[85vh] flex items-center overflow-hidden"
-         style="background: linear-gradient(135deg, #0d1b2e 0%, #1e3a5f 40%, #152b47 100%);">
+<section class="relative min-h-[85vh] flex items-center overflow-hidden">
 
-  <%# Background pattern %>
-  <div class="absolute inset-0 opacity-10"
-       style="background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");"></div>
+  <%# Background photo %>
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80"
+         alt="Australian landscape" class="w-full h-full object-cover" loading="eager">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(13,27,46,0.92) 0%, rgba(30,58,95,0.80) 50%, rgba(21,43,71,0.75) 100%);"></div>
+  </div>
   <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
   <div class="absolute -left-20 bottom-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
 
@@ -80,11 +82,13 @@
         <% @tours.each do |tour| %>
           <div class="card group">
             <div class="relative h-52 bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2e] overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              </div>
-              <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/70">
-                <span class="text-white/80 font-medium text-sm"><%= tour.duration.presence || "1 Day" %> · <%= tour.departure_time.presence || "Early Departure" %></span>
+              <% if tour.featured_image_url.present? %>
+                <img src="<%= tour.featured_image_url %>" alt="<%= tour.name %>"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <% end %>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-0 inset-x-0 p-4">
+                <span class="text-white/90 font-medium text-sm"><%= tour.duration.presence || "1 Day" %> · <%= tour.departure_time.presence || "Early Departure" %></span>
               </div>
               <div class="absolute top-3 right-3 bg-amber-500 text-[#0d1b2e] font-extrabold text-lg px-3 py-1 rounded-lg shadow-lg">
                 <%= tour.price_display %><span class="text-xs font-normal">/pp</span>
@@ -109,7 +113,7 @@
           </div>
         <% end %>
       </div>
-      <div class="text-center mt-10"><%= link_to "View All Tours →", tours_path, class: "btn-secondary" %></div>
+      <div class="text-center mt-10"><%= link_to "View All Tours", tours_path, class: "btn-secondary" %></div>
     <% else %>
       <p class="text-center text-gray-400 py-12">Tour packages coming soon!</p>
     <% end %>
@@ -177,7 +181,7 @@
           <div class="text-4xl mb-4"><%= icon %></div>
           <h3 class="font-display font-bold text-white text-xl mb-3"><%= title %></h3>
           <p class="text-gray-400 text-sm leading-relaxed mb-6"><%= desc %></p>
-          <%= link_to cta + " →", path, class: "text-amber-400 font-semibold text-sm hover:text-amber-300 transition-colors" %>
+          <%= link_to cta + "", path, class: "text-amber-400 font-semibold text-sm hover:text-amber-300 transition-colors" %>
         </div>
       <% end %>
     </div>
@@ -209,7 +213,7 @@
           </div>
         <% end %>
       </div>
-      <div class="text-center mt-8"><%= link_to "Read All Reviews →", reviews_path, class: "btn-secondary" %></div>
+      <div class="text-center mt-8"><%= link_to "Read All Reviews", reviews_path, class: "btn-secondary" %></div>
     </div>
   </section>
 <% end %>

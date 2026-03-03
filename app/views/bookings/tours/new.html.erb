@@ -1,7 +1,12 @@
 <% content_for :title, "Book a Tour" %>
 
-<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-14 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="relative text-white overflow-hidden" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80"
+         alt="Beautiful destination" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/92 to-[#1e3a5f]/82"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     <p class="section-subtitle" style="color:#f59e0b;">Reserve Your Spot</p>
     <h1 class="font-display text-4xl font-extrabold mt-1">Book a Tour</h1>
     <p class="text-gray-300 mt-2">Fill in your details below and we'll confirm your booking promptly.</p>
@@ -90,13 +95,13 @@
           We'll confirm your booking and send payment details via email or phone within 2 hours. No payment is collected online.
         </div>
 
-        <%= f.submit "Confirm Booking →", class: "btn-primary w-full text-center py-4 text-base cursor-pointer block" %>
+        <%= f.submit "Confirm Booking", class: "btn-primary w-full text-center py-4 text-base cursor-pointer block" %>
       <% end %>
     </div>
 
     <div class="mt-5 text-center text-sm text-gray-500">
-      Need help? Call us at <a href="tel:+61470238634" class="text-amber-500 font-semibold">+61 470 238 634</a> or
-      <a href="https://wa.me/61470238634" target="_blank" class="text-green-600 font-semibold">WhatsApp us</a>
+      Need help? Call us at <a href="tel:+61423877645" class="text-amber-500 font-semibold">+61 423 877 645</a> or
+      <a href="https://wa.me/61423877645" target="_blank" class="text-green-600 font-semibold">WhatsApp us</a>
     </div>
   </div>
 </section>

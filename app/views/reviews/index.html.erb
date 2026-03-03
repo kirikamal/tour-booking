@@ -1,7 +1,12 @@
 <% content_for :title, "Customer Reviews" %>
 
-<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-16 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="relative py-20 text-white overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80"
+         alt="Happy travellers" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/90 to-[#1e3a5f]/82"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     <p class="section-subtitle" style="color:#f59e0b;">What Travellers Say</p>
     <h1 class="font-display text-4xl sm:text-5xl font-extrabold mt-1">Customer Reviews</h1>
     <p class="text-gray-300 mt-3">Hundreds of happy travellers. Here are some of their stories.</p>
@@ -64,7 +69,7 @@
             <%= f.label :body, "Your Review *", class: "block text-gray-300 text-sm font-semibold mb-1" %>
             <%= f.text_area :body, class: "form-input bg-white/10 border-white/20 text-white placeholder-gray-500", rows: 4, placeholder: "Tell us about your experience..." %>
           </div>
-          <%= f.submit "Submit Review →", class: "btn-primary cursor-pointer" %>
+          <%= f.submit "Submit Review", class: "btn-primary cursor-pointer" %>
           <p class="text-gray-500 text-xs">Reviews are moderated before appearing publicly.</p>
         <% end %>
       </div>

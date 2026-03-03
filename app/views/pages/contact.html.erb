@@ -1,7 +1,12 @@
 <% content_for :title, "Contact Us" %>
 
-<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-16 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="relative py-20 text-white overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?auto=format&fit=crop&w=1920&q=80"
+         alt="Sydney city view" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/92 to-[#1e3a5f]/82"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     <p class="section-subtitle" style="color:#f59e0b;">Get In Touch</p>
     <h1 class="font-display text-4xl sm:text-5xl font-extrabold mt-1">Contact Us</h1>
     <p class="text-gray-300 mt-3">We're here to help. Reach out via phone, WhatsApp, email, or the form below.</p>
@@ -14,8 +19,8 @@
 
       <div class="space-y-4">
         <% [
-          ["📞","Phone","+61 470 238 634","tel:+61470238634","Call anytime 6AM–9PM"],
-          ["💬","WhatsApp","Chat Now","https://wa.me/61470238634","Fastest response method"],
+          ["📞","Phone","+61 423 877 645","tel:+61423877645","Call anytime 6AM–9PM"],
+          ["💬","WhatsApp","Chat Now","https://wa.me/61423877645","Fastest response method"],
           ["📧","Email","info@prasannatoursandtransport.com.au","mailto:info@prasannatoursandtransport.com.au","Response within 2 hours"],
           ["📍","Address","Pendle Hill, NSW 2145","#","Sydney, Australia"]
         ].each do |icon, label, value, link, desc| %>
@@ -73,9 +78,9 @@
                 <textarea name="message" id="message" class="form-input" rows="5" placeholder="How can we help? Include dates, group size, or special requirements..." required></textarea>
               </div>
             </div>
-            <button type="submit" class="btn-primary w-full text-center py-4 text-base">Send Message →</button>
+            <button type="submit" class="btn-primary w-full text-center py-4 text-base">Send Message</button>
           <% end %>
-          <p class="text-gray-400 text-xs text-center mt-4">Or reach us instantly on <a href="https://wa.me/61470238634" class="text-green-600 font-semibold" target="_blank">WhatsApp</a></p>
+          <p class="text-gray-400 text-xs text-center mt-4">Or reach us instantly on <a href="https://wa.me/61423877645" class="text-green-600 font-semibold" target="_blank">WhatsApp</a></p>
         </div>
       </div>
     </div>

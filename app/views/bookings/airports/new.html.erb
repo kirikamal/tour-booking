@@ -1,7 +1,12 @@
 <% content_for :title, "Book Airport Transfer" %>
 
-<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-14 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="relative text-white overflow-hidden" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80"
+         alt="Airport terminal" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/92 to-[#1e3a5f]/82"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     <p class="section-subtitle" style="color:#f59e0b;">Hassle-Free Travel</p>
     <h1 class="font-display text-4xl font-extrabold mt-1">Airport Transfer Booking</h1>
     <p class="text-gray-300 mt-2">Reliable, on-time airport pickups and drop-offs across Sydney.</p>
@@ -99,7 +104,7 @@
           We monitor your flight and adjust pickup time automatically for any delays. Available 24/7.
         </div>
 
-        <%= f.submit "Book Transfer →", class: "btn-primary w-full text-center py-4 text-base cursor-pointer block" %>
+        <%= f.submit "Book Transfer", class: "btn-primary w-full text-center py-4 text-base cursor-pointer block" %>
       <% end %>
     </div>
   </div>

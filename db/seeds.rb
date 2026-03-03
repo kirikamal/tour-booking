@@ -20,6 +20,7 @@ tours_data = [
     departure_time: "7:00 AM",
     pickup_location: "Parramatta Station",
     max_passengers: 13,
+    featured_image_url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=900&q=80",
     active: true,
     position: 1
   },
@@ -31,6 +32,7 @@ tours_data = [
     departure_time: "6:00 AM",
     pickup_location: "Parramatta Station",
     max_passengers: 13,
+    featured_image_url: "https://images.unsplash.com/photo-1524820197278-540916411e20?auto=format&fit=crop&w=900&q=80",
     active: true,
     position: 2
   },
@@ -42,6 +44,7 @@ tours_data = [
     departure_time: "6:30 AM",
     pickup_location: "Parramatta Station",
     max_passengers: 13,
+    featured_image_url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
     active: true,
     position: 3
   },
@@ -53,6 +56,7 @@ tours_data = [
     departure_time: "7:00 AM",
     pickup_location: "Parramatta Station",
     max_passengers: 13,
+    featured_image_url: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=900&q=80",
     active: true,
     position: 4
   },
@@ -64,6 +68,7 @@ tours_data = [
     departure_time: "6:30 AM",
     pickup_location: "Parramatta Station",
     max_passengers: 13,
+    featured_image_url: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
     active: true,
     position: 5
   },
@@ -75,6 +80,7 @@ tours_data = [
     departure_time: "5:30 AM",
     pickup_location: "Parramatta Station",
     max_passengers: 13,
+    featured_image_url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80",
     active: true,
     position: 6
   }

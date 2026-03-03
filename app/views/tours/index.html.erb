@@ -1,8 +1,13 @@
 <% content_for :title, "Tour Packages" %>
 
 <%# Page Header %>
-<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-16 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="relative py-20 text-white overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1920&q=80"
+         alt="Australian tour destinations" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/92 to-[#1e3a5f]/80"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     <p class="section-subtitle" style="color:#f59e0b;">Day Trips from Sydney</p>
     <h1 class="font-display text-4xl sm:text-5xl font-extrabold mt-1">Our Tour Packages</h1>
     <p class="text-gray-300 mt-3 text-lg max-w-2xl">Explore Australia's most stunning destinations with our expertly guided day tours. All prices per person, inclusive of transport.</p>
@@ -22,12 +27,13 @@
         <% @tours.each do |tour| %>
           <div class="card group">
             <div class="relative h-56 bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2e] overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                <svg class="w-28 h-28 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              </div>
-              <div class="absolute inset-0 bg-gradient-to-t from-[#0d1b2e]/80 via-transparent to-transparent"></div>
+              <% if tour.featured_image_url.present? %>
+                <img src="<%= tour.featured_image_url %>" alt="<%= tour.name %>"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <% end %>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0d1b2e]/75 via-transparent to-transparent"></div>
               <div class="absolute bottom-3 left-4 text-white">
-                <span class="text-sm font-medium"><%= tour.duration.presence || "1 Day" %> Excursion</span>
+                <span class="text-sm font-medium drop-shadow"><%= tour.duration.presence || "1 Day" %> Excursion</span>
               </div>
               <div class="absolute top-3 right-3 bg-amber-500 text-[#0d1b2e] font-extrabold text-lg px-3 py-1.5 rounded-xl shadow-lg">
                 <%= tour.price_display %><span class="text-xs font-normal"> /pp</span>

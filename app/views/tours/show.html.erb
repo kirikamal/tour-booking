@@ -1,8 +1,18 @@
 <% content_for :title, @tour.name %>
 
 <%# Hero %>
-<div class="bg-gradient-to-r from-[#0d1b2e] to-[#1e3a5f] py-16 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="relative py-20 text-white overflow-hidden">
+  <div class="absolute inset-0">
+    <% if @tour.featured_image_url.present? %>
+      <img src="<%= @tour.featured_image_url %>" alt="<%= @tour.name %>"
+           class="w-full h-full object-cover" loading="eager">
+    <% else %>
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80"
+           alt="<%= @tour.name %>" class="w-full h-full object-cover" loading="eager">
+    <% end %>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/92 to-[#1e3a5f]/75"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
       <%= link_to "Home", root_path, class: "hover:text-amber-400 transition-colors" %>
       <span>/</span>
@@ -97,8 +107,8 @@
           <%= @tour.price_display %><span class="text-base text-gray-500 font-normal"> /person</span>
         </div>
         <%= link_to "Book This Tour", new_bookings_tour_path(tour_id: @tour.id), class: "btn-primary block text-center w-full mb-3" %>
-        <a href="tel:+61470238634" class="block text-center text-[#1e3a5f] font-semibold text-sm hover:text-amber-500 transition-colors">
-          📞 Call: +61 470 238 634
+        <a href="tel:+61423877645" class="block text-center text-[#1e3a5f] font-semibold text-sm hover:text-amber-500 transition-colors">
+          📞 Call: +61 423 877 645
         </a>
       </div>
 
@@ -124,8 +134,13 @@
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <% @related.each do |tour| %>
           <div class="card group">
-            <div class="relative h-40 bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2e]">
-              <div class="absolute top-3 right-3 bg-amber-500 text-[#0d1b2e] font-bold text-sm px-2.5 py-1 rounded-lg"><%= tour.price_display %>/pp</div>
+            <div class="relative h-40 bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2e] overflow-hidden">
+              <% if tour.featured_image_url.present? %>
+                <img src="<%= tour.featured_image_url %>" alt="<%= tour.name %>"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <% end %>
+              <div class="absolute top-3 right-3 bg-amber-500 text-[#0d1b2e] font-bold text-sm px-2.5 py-1 rounded-lg shadow"><%= tour.price_display %>/pp</div>
             </div>
             <div class="p-4">
               <h3 class="font-bold text-[#0d1b2e] mb-3 group-hover:text-amber-600 transition-colors"><%= tour.name %></h3>
