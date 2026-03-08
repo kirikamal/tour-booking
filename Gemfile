@@ -65,6 +65,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Use sqlite3 as the database for Active Record
+  gem "sqlite3", ">= 2.1"
 end
 
 group :development do
@@ -72,8 +75,6 @@ group :development do
   gem "web-console"
   # Preview emails in browser
   gem "letter_opener"
-  # Use sqlite3 as the database for Active Record
-  gem "sqlite3", ">= 2.1"
 end
 
 group :test do
@@ -82,6 +83,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-group :production do
-  gem "pg", "~> 1.5"
-end
+gem "pg", "~> 1.5"
