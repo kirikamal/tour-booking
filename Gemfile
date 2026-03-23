@@ -18,7 +18,7 @@ gem "tailwindcss-rails"
 gem "jbuilder"
 
 # Password hashing for admin authentication
-gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.22"
 
 # Admin panel
 gem "activeadmin"
