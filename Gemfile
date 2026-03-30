@@ -25,7 +25,7 @@ gem "activeadmin"
 gem "devise", "~> 4.9"
 
 # Pagination
-gem "pagy", "~> 9.3"
+gem "pagy", "~> 43.4"
 
 # SEO meta tags
 gem "meta-tags"
